@@ -1,0 +1,329 @@
+/* ========================================
+   about.css — About page only styles
+   Requires style.css to be loaded first
+======================================== */
+
+/* ========================================
+   Shared section spacing
+======================================== */
+.about-hero,
+.who-am-i,
+.what-i-do,
+.how-i-work,
+.passion {
+  padding-block: 5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-hero {
+  border-top: none;
+  padding-top: 4rem;
+}
+
+/* Centered label + heading pattern */
+.section-label-center {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-label-center h2 {
+  padding-top: 0.5rem;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+  color: var(--color-muted);
+  margin-bottom: 3rem;
+}
+
+/* ========================================
+   1. Hero
+======================================== */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-text .label {
+  margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+  padding-top: 0.25rem;
+  font-size: clamp(2rem, 1.6rem + 2.5vw, 3.5rem);
+}
+
+.hero-desc {
+  color: var(--color-muted);
+  max-width: 36rem;
+  margin-top: 1rem;
+  line-height: 1.75;
+}
+
+.hero-meta {
+  list-style: none;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero-meta li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.9rem;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: var(--color-heading);
+  min-width: 6rem;
+}
+
+.meta-value {
+  color: var(--color-muted);
+}
+
+/* Album / photo */
+.hero-album {
+  display: flex;
+  justify-content: center;
+}
+
+.album-img {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  position: relative;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.album-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(26, 43, 60, 0.18)
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.album-img:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px) rotate(1deg);
+}
+
+.album-img:hover::after {
+  opacity: 1;
+}
+
+.album-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========================================
+   2. Who Am I
+======================================== */
+.who-body {
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.who-body p {
+  color: var(--color-muted);
+  line-height: 1.85;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.1rem);
+}
+
+/* ========================================
+   3. What I Do
+======================================== */
+.skills-album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.skill-img-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skill-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.skill-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Overlay: hidden by default, revealed on hover */
+.skill-img-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(46, 111, 189, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius-md);
+}
+
+.skill-img-overlay p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.skill-img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.skill-img-wrap:hover .skill-img-overlay {
+  opacity: 1;
+}
+
+.skill-img-caption {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  text-align: center;
+  font-weight: 500;
+}
+
+.skills-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 1.25rem;
+  font-style: italic;
+}
+
+/* ========================================
+   4 & 5. Two-column sections (How I Work + Passion)
+======================================== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.two-col-text .label {
+  margin-bottom: 0.25rem;
+}
+
+.two-col-text h2 {
+  padding-top: 0.25rem;
+}
+
+.two-col-text p {
+  color: var(--color-muted);
+  line-height: 1.75;
+  margin-top: 1rem;
+}
+
+.two-col-text p + p {
+  margin-top: 0.75rem;
+}
+
+/* Plain image (no hover) */
+.plain-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.plain-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========================================
+   Responsive — Tablet (768px)
+======================================== */
+@media (min-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .skills-album {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   Responsive — Desktop (1024px)
+======================================== */
+@media (min-width: 1024px) {
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  /* Passion section: reverse col order — text left, image right */
+  .two-col-reverse {
+    direction: ltr;
+  }
+
+  .two-col-reverse .two-col-text {
+    order: 1;
+  }
+
+  .two-col-reverse .two-col-img {
+    order: 2;
+  }
+}
+
+/* ========================================
+   Section main title (replaces label+h2 pattern)
+======================================== */
+.section-main-title {
+  font-size: clamp(1.6rem, 1.3rem + 1.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-heading);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.two-col-text .section-main-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}

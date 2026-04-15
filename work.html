@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/work.css">
+  <title>Work — Xingyue Wang</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">X</span>
+        Xingyue Wang
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── BANNER ──────────────────────────────── -->
+    <section class="work-banner" id="work-banner" aria-label="Page banner">
+      <div class="banner-text">
+
+        <!-- Line 1: text drops in, then line extends right -->
+        <div class="banner-row row-1">
+          <p class="banner-word word-1">Products that are both</p>
+          <span class="banner-line line-right" aria-hidden="true"></span>
+        </div>
+
+        <!-- Line 2: line extends right first, then text drops in -->
+        <div class="banner-row row-2">
+          <span class="banner-line line-left" aria-hidden="true"></span>
+          <p class="banner-word word-2">usable and viable</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── FILTER ───────────────────────────────── -->
+    <section class="work-filter" id="work-filter" aria-label="Filter projects">
+      <div class="filter-group" role="group" aria-label="Project categories">
+        <button class="filter-btn active" data-filter="all">
+          <span class="filter-radio"></span> All Work
+        </button>
+        <button class="filter-btn" data-filter="ux-research">
+          <span class="filter-radio"></span> UX Research
+        </button>
+        <button class="filter-btn" data-filter="ux-design">
+          <span class="filter-radio"></span> UX Design
+        </button>
+        <button class="filter-btn" data-filter="product">
+          <span class="filter-radio"></span> Product
+        </button>
+        <button class="filter-btn" data-filter="web-dev">
+          <span class="filter-radio"></span> Web Dev
+        </button>
+        <button class="filter-btn" data-filter="xr-vr-ar">
+          <span class="filter-radio"></span> XR / VR / AR
+        </button>
+        <button class="filter-btn" data-filter="branding">
+          <span class="filter-radio"></span> Branding
+        </button>
+        <button class="filter-btn" data-filter="ai">
+          <span class="filter-radio"></span> AI
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ── WORK GALLERY ─────────────────────────── -->
+    <section class="work-gallery" id="work-gallery" aria-label="Project gallery">
+      <div class="gallery-grid">
+
+        <!-- Card 1 -->
+        <article class="work-card" data-tags="ux-research ux-design">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-1">
+              <img src="" alt="ElevatedED project thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">ElevatedED</a></h3>
+              <ul class="card-tags">
+                <li>EdTech</li>
+                <li>Mobile</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">A platform supporting students with career development and academic planning.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="work-card" data-tags="product ux-design">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-2">
+              <img src="" alt="Mindo Chocolate Maker project thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">Mindo Chocolate Maker</a></h3>
+              <ul class="card-tags">
+                <li>Wellness</li>
+                <li>Web</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">A mindfulness tool making evidence-based wellness practices accessible to everyone.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="work-card" data-tags="xr-vr-ar ux-design">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-3">
+              <img src="" alt="Project Aurora thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">Project Aurora</a></h3>
+              <ul class="card-tags">
+                <li>VR</li>
+                <li>XR</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">An immersive XR experience designed to enhance spatial learning and collaboration.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="work-card" data-tags="branding">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-4">
+              <img src="" alt="Brand Identity project thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">Brand Identity Project</a></h3>
+              <ul class="card-tags">
+                <li>Branding</li>
+                <li>Visual</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">A complete brand identity system built for a sustainable lifestyle startup.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="work-card" data-tags="ai product">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-5">
+              <img src="" alt="AI Dashboard thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">AI Dashboard</a></h3>
+              <ul class="card-tags">
+                <li>AI</li>
+                <li>IoT</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">An intelligent dashboard surfacing actionable insights from complex IoT data streams.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="work-card" data-tags="web-dev ux-research">
+          <a href="#" class="card-link">
+            <div class="card-thumb thumb-6">
+              <img src="" alt="Design System thumbnail">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3><a href="#">Design System</a></h3>
+              <ul class="card-tags">
+                <li>Web Dev</li>
+                <li>Systems</li>
+              </ul>
+            </div>
+            <p class="card-subtitle">A scalable component library and design system built for cross-functional teams.</p>
+            <a class="btn-readmore" href="#">Read more &nbsp;→</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Xingyue Wang. All rights reserved.</p>
+    <ul>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      <li><a href="mailto:xingyue@example.com">Email</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/work.js"></script>
+
+</body>
+</html>

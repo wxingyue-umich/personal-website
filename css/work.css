@@ -1,0 +1,362 @@
+/* ========================================
+   Prevent layout shift when scrollbar appears/disappears
+======================================== */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* ========================================
+   work.css — Work page only styles
+   Requires style.css to be loaded first
+======================================== */
+
+/* ========================================
+   Section: Banner
+======================================== */
+.work-banner {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 52rem;
+  margin-inline: auto;
+  overflow: hidden;        /* clip lines during animation */
+}
+
+/* Each row: text + line side by side */
+.banner-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* The text words */
+.banner-word {
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-heading);
+  white-space: nowrap;
+  flex-shrink: 0;
+  /* start hidden above */
+  opacity: 0;
+  transform: translateY(-1.2em);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.banner-word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The extending lines */
+.banner-line {
+  display: block;
+  height: 2px;
+  background-color: var(--color-heading);
+  flex: 1;
+  /* start at width 0, expand via scaleX */
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.banner-line.visible {
+  transform: scaleX(1);
+}
+
+/* Row 2: line is on the left, so extend from left */
+.row-2 .banner-line {
+  transform-origin: left center;
+}
+
+/* Row 2 text is right-aligned */
+.row-2 {
+  justify-content: flex-end;
+}
+
+
+
+/* ========================================
+   Section: Filter
+======================================== */
+.work-filter {
+  padding-bottom: 3rem;
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.filter-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-base);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  background-color: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition);
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-heading);
+  color: var(--color-heading);
+}
+
+.filter-btn.active {
+  background-color: var(--color-heading);
+  color: #ffffff;
+  border-color: var(--color-heading);
+}
+
+/* Radio dot */
+.filter-radio {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.filter-radio::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color var(--transition);
+}
+
+.filter-btn.active .filter-radio {
+  border-color: #ffffff;
+}
+
+.filter-btn.active .filter-radio::after {
+  background-color: #ffffff;
+}
+
+/* ========================================
+   Section: Work Gallery
+======================================== */
+.work-gallery {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* ── Work Card ── */
+.work-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  gap: 1rem;
+  transition: background-color var(--transition);
+}
+
+.work-card:hover {
+  background-color: var(--color-surface);
+}
+
+/* Hidden when filtered */
+.work-card.hidden {
+  display: none;
+}
+
+/* Thumbnail */
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-border);
+}
+
+.card-thumb.thumb-1 { background-color: #f0f0f0; }
+.card-thumb.thumb-2 { background-color: #e8f0fe; }
+.card-thumb.thumb-3 { background-color: #ede9fe; }
+.card-thumb.thumb-4 { background-color: #fef9c3; }
+.card-thumb.thumb-5 { background-color: #fee2e2; }
+.card-thumb.thumb-6 { background-color: #e0f2fe; }
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.work-card:hover .card-thumb img {
+  transform: scale(1.03);
+}
+
+/* Card body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Subtitle above title (small label) */
+.card-category {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* Title row: title + tags on same line, no wrap */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+.card-title-row h3 {
+  padding: 0;
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.card-title-row h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title-row h3 a:hover {
+  color: var(--color-primary);
+}
+
+/* Tags: horizontal, no wrap */
+.card-tags {
+  list-style: none;
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.card-tags li {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  border-radius: 999px;
+  white-space: nowrap;
+  background-color: var(--color-bg);
+}
+
+/* Subtitle / description */
+.card-subtitle {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* Read More */
+.btn-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  text-decoration: none;
+  align-self: flex-start;
+  background-color: var(--color-bg);
+  transition: background-color var(--transition), border-color var(--transition),
+    color var(--transition);
+}
+
+.btn-readmore:hover {
+  border-color: var(--color-heading);
+  color: var(--color-heading);
+  background-color: var(--color-surface);
+}
+
+/* ========================================
+   Responsive
+======================================== */
+/* Tablet: 2-col cards */
+@media (min-width: 768px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .work-card {
+    padding-block: 0;
+    border-bottom: none;
+    background-color: transparent;
+  }
+
+  .work-card:hover {
+    background-color: transparent;
+  }
+
+  /* Restore card hover as box shadow in grid layout */
+  .card-thumb {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+/* Mobile: filter 2-col */
+@media (max-width: 600px) {
+  .filter-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .banner-line.line-1,
+  .banner-line.line-2 {
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+  }
+}
